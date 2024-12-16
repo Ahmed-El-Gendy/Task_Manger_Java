@@ -89,9 +89,11 @@ cd task-manager-gui
 project-directory/
 |
 |-- src/
+|   |-- FileManager.java       # Handles file operations for tasks
 |   |-- Task.java              # Task class for task objects
-|   |-- TaskManagerGUI.java    # Main GUI class
 |   |-- TaskApp.java           # Terminal-based interface class
+|   |-- TaskManager.java       # Logic for task management operations
+|   |-- TaskManagerGUI.java    # Main GUI class
 |
 |-- README.md                  # Documentation (this file)
 |-- .gitignore                 # Git ignore file
@@ -103,8 +105,8 @@ project-directory/
 
 ### Main Interface
 A clean, user-friendly interface displaying tasks in a table:
-![Task Manager Main Interface](https://via.placeholder.com/800x400?text=Task+Manager+GUI+Main+Interface)
 
+![Task Manager Main Interface](gui.png)
 
 ---
 
