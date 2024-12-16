@@ -67,7 +67,7 @@ public class TaskManagerGUI {
         JTextField titleField = new JTextField();
         JTextField descriptionField = new JTextField();
         JTextField dueDateField = new JTextField("YYYY-MM-DD");
-        JCheckBox statusCheckBox = new JCheckBox("Completed");
+        //JCheckBox statusCheckBox = new JCheckBox("Completed");
 
         Object[] fields = {
                 "Title:", titleField,
