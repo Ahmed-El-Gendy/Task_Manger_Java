@@ -96,7 +96,6 @@ project-directory/
 |   |-- TaskManagerGUI.java    # Main GUI class
 |
 |-- README.md                  # Documentation (this file)
-|-- .gitignore                 # Git ignore file
 ```
 
 ---
