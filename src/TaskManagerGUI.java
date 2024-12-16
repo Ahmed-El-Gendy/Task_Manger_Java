@@ -73,7 +73,7 @@ public class TaskManagerGUI {
                 "Title:", titleField,
                 "Description:", descriptionField,
                 "Due Date:", dueDateField,
-                "Completed:", statusCheckBox
+                //"Completed:", statusCheckBox
         };
 
         int option = JOptionPane.showConfirmDialog(frame, fields, "Add Task", JOptionPane.OK_CANCEL_OPTION);
@@ -82,7 +82,7 @@ public class TaskManagerGUI {
                 String title = titleField.getText();
                 String description = descriptionField.getText();
                 LocalDate dueDate = LocalDate.parse(dueDateField.getText());
-                boolean isCompleted = statusCheckBox.isSelected();
+                //boolean isCompleted = statusCheckBox.isSelected();
 
                 Task task = new Task(title, description, dueDate);
                 tasks.add(task);
