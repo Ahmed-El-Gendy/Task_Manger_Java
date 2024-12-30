@@ -5,6 +5,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 public class TaskManagerGUI {
@@ -14,7 +15,7 @@ public class TaskManagerGUI {
     private List<Task> tasks;
 
     public TaskManagerGUI() {
-        tasks = new ArrayList<>();
+        tasks = FileManager.loadTasks();
         initialize();
     }
 
@@ -61,6 +62,7 @@ public class TaskManagerGUI {
         frame.add(buttonPanel, BorderLayout.SOUTH);
 
         frame.setVisible(true);
+        updateTable();
     }
 
     private void addTask(ActionEvent e) {
@@ -87,6 +89,7 @@ public class TaskManagerGUI {
                 Task task = new Task(title, description, dueDate);
                 tasks.add(task);
                 updateTable();
+                FileManager.saveTasks(tasks);
             } catch (Exception ex) {
                 JOptionPane.showMessageDialog(frame, "Invalid input. Please try again.");
             }
@@ -122,6 +125,7 @@ public class TaskManagerGUI {
                 task.setDueDate(LocalDate.parse(dueDateField.getText()));
                 task.setCompleted(statusCheckBox.isSelected());
                 updateTable();
+                FileManager.saveTasks(tasks);
             } catch (Exception ex) {
                 JOptionPane.showMessageDialog(frame, "Invalid input. Please try again.");
             }
@@ -137,10 +141,14 @@ public class TaskManagerGUI {
 
         tasks.remove(selectedRow);
         updateTable();
+        FileManager.saveTasks(tasks);
     }
 
     private void updateTable() {
         tableModel.setRowCount(0); // Clear the table
+        tasks.sort(Comparator.comparing(Task::isCompleted)
+                .thenComparing(task -> task.getDueDate().isBefore(LocalDate.now()) ? 0 : 1)
+                .thenComparing(Task::getDueDate));
         for (Task task : tasks) {
             tableModel.addRow(new Object[]{
                     task.getTitle(),
