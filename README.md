@@ -39,7 +39,6 @@ A **Task Manager** application built in **Java** using **Swing** for the graphic
 
 1. **Java**: Programming language used to build the application.
 2. **Swing**: For creating the graphical user interface (GUI).
-3. **Maven (Optional)**: For managing dependencies (if extended).
 
 ---
 
@@ -57,7 +56,7 @@ Before running the project, ensure the following:
 
 ### 1. Clone the Repository
 ```bash
-git clone https://github.com/your-username/task-manager-gui.git
+git clone https://github.com/Ahmed-El-Gendy/Task_Manger_Java.git
 cd task-manager-gui
 ```
 
